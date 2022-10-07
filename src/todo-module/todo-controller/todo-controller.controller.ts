@@ -17,22 +17,22 @@ export class TodoControllerController {
     }
 
     @Post()
-    addTodo(@Body() body: TodoDto): string {
+    addTodo(@Body() body: TodoDto): TodoModel {
         return this.todoService.postTodo(body);
     }
 
-    @Get('/:id')
-    getTodoById(@Param() id: string): TodoModel {
+    @Get(':id')
+    getTodoById(@Param('id') id: string): TodoModel {
         return this.todoService.getTodoById(id);
     }
 
-    @Delete('/:id')
-    deleteTodoById(@Param() id: string): string {
+    @Delete(':id')
+    deleteTodoById(@Param('id') id: string): string {
         return this.todoService.deleteTodo(id);
     }
 
-    @Put('/:id')
-    modifyById(@Param() id: string, @Body() body: updateTodoDto): string {
+    @Put(':id')
+    modifyById(@Param('id') id: string, @Body() body: updateTodoDto): string {
         return this.todoService.updateTodo(id, body);
     }
 }
