@@ -1,47 +1,38 @@
-import {Body, Controller, Delete, Get, NotFoundException, Param, Post, Put} from '@nestjs/common';
+import {Body, Controller, Delete, Get, Param, Post, Put} from '@nestjs/common';
 import {TodoModel} from "../TodoModel";
 import {TodoDto} from "../dto/todoDto";
 import {updateTodoDto} from "../dto/updateTodoDto";
+import {TodoServiceService} from "../../todo-service/todo-service.service";
 
 @Controller('todo')
 export class TodoControllerController {
-    private todos: TodoModel[] = []
+
+
+    constructor(private todoService: TodoServiceService) {
+    }
 
     @Get()
     getTodos(): TodoModel[] {
-        return this.todos;
+        return this.todoService.getTodo();
     }
 
     @Post()
     addTodo(@Body() body: TodoDto): string {
-        const todo = new TodoModel();
-        todo.name = body.name;
-        todo.description = body.description;
-        this.todos.push(todo);
-        return "todo added successfully";
+        return this.todoService.postTodo(body);
     }
 
     @Get('/:id')
     getTodoById(@Param() id: string): TodoModel {
-        const todo = this.todos.find((todo) => todo.id == id);
-        if (!todo) throw new NotFoundException();
-        return todo;
+        return this.todoService.getTodoById(id);
     }
 
     @Delete('/:id')
     deleteTodoById(@Param() id: string): string {
-        const todo = this.todos.find((todo) => todo.id == id);
-        if (!todo) throw new NotFoundException();
-        return "todo deleted successfully";
+        return this.todoService.deleteTodo(id);
     }
 
     @Put('/:id')
     modifyById(@Param() id: string, @Body() body: updateTodoDto): string {
-        const todo = this.todos.find((todo) => todo.id == id);
-        if (!todo) throw new NotFoundException();
-        todo.name = body.name;
-        todo.description = body.description;
-        todo.statut = body.statut;
-        return "todo modified successfully"
+        return this.todoService.updateTodo(id, body);
     }
 }
