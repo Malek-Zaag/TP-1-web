@@ -7,10 +7,11 @@ import { TodoModuleModule } from './todo-module/todo-module.module';
 import { TodoControllerController } from './todo-module/todo-controller/todo-controller.controller';
 import { TodoServiceService } from './todo-service/todo-service.service';
 import { CommonModuleModule } from './common-module/common-module.module';
+import { CustomPipeController } from './custom-pipe/custom-pipe.controller';
 
 @Module({
   imports: [PremierModule, TodoModuleModule, CommonModuleModule],
-  controllers: [AppController,PremierController, TodoControllerController],
+  controllers: [AppController,PremierController, TodoControllerController, CustomPipeController],
   providers: [AppService, TodoServiceService],
 })
 export class AppModule {}
