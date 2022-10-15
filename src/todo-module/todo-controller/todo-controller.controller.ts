@@ -7,7 +7,7 @@ import {
   Post,
   Put,
 } from '@nestjs/common';
-import { TodoModel } from '../TodoModel';
+import { TodoModel } from '../todoModel';
 import { TodoDto } from '../dto/todoDto';
 import { updateTodoDto } from '../dto/updateTodoDto';
 import { TodoServiceService } from '../../todo-service/todo-service.service';

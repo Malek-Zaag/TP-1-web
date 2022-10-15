@@ -1,5 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { TodoModel } from '../todo-module/TodoModel';
+import { TodoModel } from '../todo-module/todoModel';
 import { TodoDto } from '../todo-module/dto/todoDto';
 import { updateTodoDto } from '../todo-module/dto/updateTodoDto';
 
