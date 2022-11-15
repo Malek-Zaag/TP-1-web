@@ -16,6 +16,7 @@ import { TodoEntity } from './todo-module/Entity/todoEntity';
     PremierModule,
     TodoModuleModule,
     CommonModuleModule,
+    TypeOrmModule.forFeature([TodoEntity]),
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: 'localhost',
@@ -23,7 +24,7 @@ import { TodoEntity } from './todo-module/Entity/todoEntity';
       username: 'root',
       password: '',
       database: 'nest-tp',
-      entities: [TodoEntity],
+      autoLoadEntities: true,
       synchronize: true,
     }),
   ],

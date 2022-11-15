@@ -10,7 +10,7 @@ import { Status } from '../status';
 
 @Entity('todo')
 export class TodoEntity {
-  @PrimaryGeneratedColumn('uuid')
+  @PrimaryGeneratedColumn()
   id: number;
   @Column()
   name: string;
@@ -27,5 +27,5 @@ export class TodoEntity {
     enum: Status,
     default: Status.waiting,
   })
-  statut: Status;
+  status: Status;
 }
