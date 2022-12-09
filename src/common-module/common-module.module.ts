@@ -7,7 +7,9 @@ const UUID = {
 };
 
 @Module({
+  imports: [],
   providers: [UUID],
+  controllers: [],
   exports: [UUID],
 })
 export class CommonModuleModule {}

@@ -10,10 +10,10 @@ import {
   Version,
 } from '@nestjs/common';
 import { TodoModel } from '../todoModel';
-import { TodoDto } from '../dto/TodoDto';
+import { TodoDto } from '../dto/todo.dto';
 import { updateTodoDto } from '../dto/updateTodoDto';
 import { TodoServiceService } from '../../todo-service/todo-service.service';
-import { TodoEntity } from '../Entity/todoEntity';
+import { TodoEntity } from '../Entity/todo.entity';
 
 @Controller('todo')
 export class TodoControllerController {

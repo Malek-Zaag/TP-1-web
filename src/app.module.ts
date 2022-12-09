@@ -9,7 +9,10 @@ import { TodoServiceService } from './todo-service/todo-service.service';
 import { CommonModuleModule } from './common-module/common-module.module';
 import { CustomPipeController } from './custom-pipe/custom-pipe.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { TodoEntity } from './todo-module/Entity/todoEntity';
+import { TodoEntity } from './todo-module/Entity/todo.entity';
+import { CvModule } from './cv/cv.module';
+import { UserModule } from './user/user.module';
+import { SkillModule } from './skill/skill.module';
 
 @Module({
   imports: [
@@ -27,6 +30,9 @@ import { TodoEntity } from './todo-module/Entity/todoEntity';
       autoLoadEntities: true,
       synchronize: true,
     }),
+    CvModule,
+    UserModule,
+    SkillModule,
   ],
   controllers: [
     AppController,

@@ -1,5 +1,5 @@
 import { PartialType } from '@nestjs/mapped-types';
-import { TodoDto } from './TodoDto';
+import { TodoDto } from './todo.dto';
 import { IsIn, IsOptional } from 'class-validator';
 import { ErrorMessages } from './errorMessages';
 import { Status } from '../status';
